@@ -1,0 +1,1 @@
+# spring-boot-2.7-oauth2-adfs-resource-server
