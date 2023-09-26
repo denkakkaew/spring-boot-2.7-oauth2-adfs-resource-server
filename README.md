@@ -36,9 +36,17 @@ Let's assume that Active Directory and users are already set on your Active Dire
 ![Screenshort1](images/Screenshot%20from%202023-09-26%2013-04-11.png)
 
 ## Request for token using ADFS Implicit Grant Flow:
-x
-x
-x
+To generate token from AD FS with ADFS Implicit Grant Flow, put url below to web browser. The browser will redirect to AD FS login page. After login, it will redirect to http://localhost:8080/info with token parameters.
+```txt
+https://adfs.yourdomain.com/adfs/oauth2/authorize?client_id=<clientid>&response_type=id_token&redirect_uri=http://localhost:8080/info&scope=openid&response_mode=fragment&state=12345&nonce=<generated random nonce>&resource=http://localhost:8091/resource
+```
+Below are an example for response in json format:
+```json
+{
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni...",
+    "state": "12345"
+}
+```
 ## Request for token using Authorization code grant flow:
 x
 x
