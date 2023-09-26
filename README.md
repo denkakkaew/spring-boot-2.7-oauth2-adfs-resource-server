@@ -50,7 +50,7 @@ Below are an example for response in json format:
 ## Request for token using Authorization code grant flow:
 ### Step 1: Request for code
 Open web browser and put link below, it will redirect to AD FS login page.
-```http
+```txt
 https://adfs.yourdomain.com/adfs/oauth2/authorize?
 client_id=3a6e27b9-ac5b-4335-bcae-594bc8d31db0
 &response_type=code
@@ -59,6 +59,24 @@ client_id=3a6e27b9-ac5b-4335-bcae-594bc8d31db0
 &resource=http://localhost:8091/resource
 &scope=openid
 &state=12345
+```
+After login success, it will redirect to http://localhost:8080/info with parameters below
+```txt
+http://localhost:8080/info?
+code=f-ArOm1rdUCyBVKQMJv-pQ.B7Atfx-72wgHAH...
+&state=12345
+```
+### Step 2: Request for token.
+
+```bash
+curl --location --request POST 'https://adfs.yourdomain.com/adfs/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client_id=3a6e27b9-ac5b-4335-bcae-594bc8d31db0' \
+--data-urlencode 'code=f-ArOm1rdUCyBVKQMJv-pQ.B7Atfx-72wgHAH...' \
+--data-urlencode 'redirect_uri=http://localhost:8080/info' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'client_secret=xB36vPEJajey-KEOOg3msd...
+'
 ```
 ## Request for token using Resource owner password credentials grant flow (Not recommended):
 x
