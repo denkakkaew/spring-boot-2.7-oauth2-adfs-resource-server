@@ -5,6 +5,7 @@ This code is about how to set up an ADFS (Active Directory Federation Services) 
 ## Setting Up ADFS:
 Let's assume that Active Directory and users are already set on your Active Directory server. Now we need to setting Application Group on AD FS by the following step:
 1. Log in to your ADFS server and open the ADFS Management Console. On left menu under "Application Groups", right click and click "Add Application Group..."
+![Screenshort1](images/Screenshot%20from%202023-09-26%2013-01-47.png)
 2. When "Add Application Group Wizad" appear, select "Server application accessing a web API" and given some Name then click "Next".
 3. On "Server application" step add Redirect URI for example "http://localhost:8080/info" and keep "Client Identifier" we will use it in later step. Click "Next".
 4. On "Configure Application Credentials" step click check box "Generate a shared secret" and copy to txt somewhere, we will use it in later step. Then click "Next".
