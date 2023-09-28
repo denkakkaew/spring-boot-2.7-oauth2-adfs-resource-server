@@ -76,8 +76,7 @@ curl --location --request POST 'https://adfs.yourdomain.com/adfs/oauth2/token' \
 --data-urlencode 'code=f-ArOm1rdUCyBVKQMJv-pQ.B7Atfx-72wgHAH...' \
 --data-urlencode 'redirect_uri=http://localhost:8080/info' \
 --data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'client_secret=xB36vPEJajey-KEOOg3msd...
-'
+--data-urlencode 'client_secret=xB36vPEJajey-KEOOg3msd...'
 ```
 Response look like below:
 ```json
@@ -93,7 +92,29 @@ Response look like below:
 }
 ```
 ## Request for token using Resource owner password credentials grant flow (Not recommended):
-x
-x
-x
-
+This flow will not pop up login page. You just send login credential within post command.
+```bash
+curl --location --request POST 'https://adfs.yourdomain.com/adfs/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'scope=openid' \
+--data-urlencode 'username=user@adfs.yourdomain.com' \
+--data-urlencode 'password=password' \
+--data-urlencode 'client_id=5c9db177-cc55-41d6-98db-...' \
+--data-urlencode 'client_secret=Y4yk0log7xUD6RA70qns...' \
+--data-urlencode 'resource=http://localhost:8080/resource' \
+--data-urlencode 'nonce=aserqw3erq243w3423'
+```
+Response look like below:
+```json
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSU...",
+    "token_type": "bearer",
+    "expires_in": 3600,
+    "resource": "urn:microsoft:userinfo",
+    "refresh_token": "GfiQ6R6Oz0d53Tyhu5vD9BeieO9U-d...",
+    "refresh_token_expires_in": 599939,
+    "scope": "openid",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz..."
+}
+```
