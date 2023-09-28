@@ -67,6 +67,7 @@ code=f-ArOm1rdUCyBVKQMJv-pQ.B7Atfx-72wgHAH...
 &state=12345
 ```
 ### Step 2: Request for token.
+Use the code from previous step and to make post request below:
 
 ```bash
 curl --location --request POST 'https://adfs.yourdomain.com/adfs/oauth2/token' \
@@ -77,6 +78,19 @@ curl --location --request POST 'https://adfs.yourdomain.com/adfs/oauth2/token' \
 --data-urlencode 'grant_type=authorization_code' \
 --data-urlencode 'client_secret=xB36vPEJajey-KEOOg3msd...
 '
+```
+Response look like below:
+```json
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSU...",
+    "token_type": "bearer",
+    "expires_in": 3600,
+    "resource": "urn:microsoft:userinfo",
+    "refresh_token": "GfiQ6R6Oz0d53Tyhu5vD9BeieO9U-d...",
+    "refresh_token_expires_in": 599939,
+    "scope": "openid",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz..."
+}
 ```
 ## Request for token using Resource owner password credentials grant flow (Not recommended):
 x
